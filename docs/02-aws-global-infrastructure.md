@@ -122,3 +122,18 @@ evidence/
 
 **Status:** Practical verification completed. Further AWS global infrastructure learning and documentation remain part of Project 01.
 
+## 10. Availability Zone Filtering and Count
+
+### Objective
+
+To identify Availability Zones in `ca-central-1` whose operational state
+is reported as `available` and determine their total count.
+
+### Command 1: Filter available Availability Zones
+
+```bash
+aws ec2 describe-availability-zones \
+  --region ca-central-1 \
+  --filters Name=state,Values=available \
+  --query 'AvailabilityZones[].{Zone:ZoneName,ZoneID:ZoneId,State:State}' \
+  --output table
