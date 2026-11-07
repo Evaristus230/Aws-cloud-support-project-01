@@ -126,10 +126,9 @@ evidence/
 
 ### Objective
 
-To identify Availability Zones in `ca-central-1` whose operational state
-is reported as `available` and determine their total count.
+To identify Availability Zones in `ca-central-1` whose operational state is reported as `available` and determine their total count.
 
-### Command 1: Filter available Availability Zones
+### Command 1: Filter Available Availability Zones
 
 ```bash
 aws ec2 describe-availability-zones \
@@ -137,3 +136,56 @@ aws ec2 describe-availability-zones \
   --filters Name=state,Values=available \
   --query 'AvailabilityZones[].{Zone:ZoneName,ZoneID:ZoneId,State:State}' \
   --output table
+```
+
+**Result:** The command executed successfully and returned Availability Zone information for zones in the available state.
+
+### Command 2: Count Available Availability Zones
+
+```bash
+aws ec2 describe-availability-zones \
+  --region ca-central-1 \
+  --filters Name=state,Values=available \
+  --query 'length(AvailabilityZones)' \
+  --output text
+```
+
+**Observed Result:** 3 available Availability Zones.
+
+### Technical Interpretation
+
+The AWS CLI successfully filtered the Availability Zone information and returned a count of three available zones in `ca-central-1`.
+
+This demonstrates how AWS CLI filters and JMESPath queries can be used for infrastructure discovery and operational reporting.
+
+### Cloud Support Relevance
+
+A Cloud Support Engineer can use these commands to:
+
+- Identify Availability Zones reported as available.
+- Verify infrastructure location options.
+- Investigate regional and Availability Zone-related availability questions.
+- Support infrastructure planning and troubleshooting.
+
+### Important Operational Note
+
+An Availability Zone being reported as `available` does not guarantee that every AWS service or resource is healthy within it. Service availability and resource health must be investigated separately.
+
+### Evidence
+
+The following screenshots document the practical exercise:
+
+| Evidence file | Description |
+|---|---|
+| `available-availability-zones.png` | Filtered list of available Availability Zones |
+| `availability-zones-count.png` | CLI output showing three available Availability Zones |
+
+Evidence location:
+
+`evidence/02-global-infrastructure/`
+
+### Exercise Status
+
+**Status:** Successfully executed and verified.
+
+Both AWS CLI commands completed successfully, and the filtered Availability Zone count was three.
