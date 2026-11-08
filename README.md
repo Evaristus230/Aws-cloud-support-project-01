@@ -75,36 +75,46 @@ Project-01/
 ├── README.md
 │
 ├── docs/
-│   └── 01-aws-account-foundations.md
+│   ├── 01-aws-account-foundations.md
+│   └── 02-aws-global-infrastructure.md
 │
 └── evidence/
-    └── 01-account-foundations/
-        ├── Account-verification.avif
-        ├── aws-version.avif
-        └── aws_region.png
+    ├── 01-account-foundations/
+    │   ├── Account-verification.avif
+    │   ├── aws-version.avif
+    │   └── aws_region.png
+    │
+    └── 02-global-infrastructure/
+        ├── aws-regions.avif
+        ├── availability-zones.avif
+        ├── available-availability-zones.avif
+        └── availability-zones-count.avif
 ```
 
 ## ✅ Implementation Progress
 
 ### Completed
 
+
 - [x] AWS CLI installation verification.
 - [x] AWS Region configuration verification.
 - [x] AWS authentication and identity verification.
-- [x] Initial technical documentation.
-- [x] Evidence capture.
-- [x] Initial GitHub repository upload.
+- [x] AWS Regions discovery.
+- [x] Availability Zones discovery.
+- [x] Available Availability Zones filtering.
+- [x] Availability Zone count verification.
+- [x] Technical documentation for Concepts 01 and 02.
+- [x] Evidence screenshots captured and organized.
+- [x] GitHub repository initialized and connected.
 
 ### Remaining
 
-- [ ] AWS global infrastructure fundamentals.
-- [ ] Regions and Availability Zones practical exercises.
-- [ ] Global versus regional service verification.
+- [ ] Global services versus regional services.
 - [ ] AWS account operations and identity context.
-- [ ] CLI profiles and authentication workflows.
+- [ ] AWS CLI profiles and authentication troubleshooting.
 - [ ] AWS resource discovery and inventory.
-- [ ] Operational troubleshooting exercises.
-- [ ] Final documentation and evidence audit.
+- [ ] AWS operational troubleshooting and documentation.
+- [ ] Final project review and GitHub presentation.
 
 ## 📖 Documentation & Evidence
 

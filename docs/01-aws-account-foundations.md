@@ -105,9 +105,11 @@ This confirms that the CLI session can communicate with the AWS STS endpoint.
 
 The following evidence is maintained in the project's evidence directory:
 
-| Evidence | Description |
+| Evidence file | Description |
 |---|---|
-| 01-aws-cli-environment-verification.png | AWS CLI version, configured Region and authentication verification |
+| `Account-verification.avif` | AWS authentication and identity verification |
+| `aws-version.avif` | Installed AWS CLI version |
+| `aws_region.png` | Configured default AWS Region |
 
 Evidence directory:
 

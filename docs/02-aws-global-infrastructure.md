@@ -115,7 +115,9 @@ Availability Zone information is also useful when investigating infrastructure p
 evidence/
 └── 02-global-infrastructure/
     ├── aws-regions.avif
-    └── availability-zones.avif
+    ├── availability-zones.avif
+    ├── available-availability-zones.avif
+    └── availability-zones-count.avif
 ```
 
 ## 9. Project Status
@@ -138,7 +140,7 @@ aws ec2 describe-availability-zones \
   --output table
 ```
 
-**Result:** The command executed successfully and returned Availability Zone information for zones in the available state.
+**Result:** The command executed successfully and returned Availability Zone information for zones reported as available.
 
 ### Command 2: Count Available Availability Zones
 
@@ -150,42 +152,36 @@ aws ec2 describe-availability-zones \
   --output text
 ```
 
-**Observed Result:** 3 available Availability Zones.
+**Observed result:** `3`
 
 ### Technical Interpretation
 
-The AWS CLI successfully filtered the Availability Zone information and returned a count of three available zones in `ca-central-1`.
+The AWS CLI filtered the Availability Zone information and returned a count of three zones reported as available in `ca-central-1`.
 
-This demonstrates how AWS CLI filters and JMESPath queries can be used for infrastructure discovery and operational reporting.
+The `length()` JMESPath function counts the elements in the returned Availability Zone list.
 
 ### Cloud Support Relevance
 
 A Cloud Support Engineer can use these commands to:
 
 - Identify Availability Zones reported as available.
-- Verify infrastructure location options.
+- Verify infrastructure placement options.
 - Investigate regional and Availability Zone-related availability questions.
-- Support infrastructure planning and troubleshooting.
+- Support infrastructure discovery and operational reporting.
 
 ### Important Operational Note
 
-An Availability Zone being reported as `available` does not guarantee that every AWS service or resource is healthy within it. Service availability and resource health must be investigated separately.
+An Availability Zone reported as `available` does not guarantee that every AWS service or resource in that zone is healthy. Service availability and individual resource health must be investigated separately.
 
 ### Evidence
 
-The following screenshots document the practical exercise:
-
 | Evidence file | Description |
 |---|---|
-| `available-availability-zones.png` | Filtered list of available Availability Zones |
-| `availability-zones-count.png` | CLI output showing three available Availability Zones |
+| `available-availability-zones.avif` | Filtered list of available Availability Zones |
+| `availability-zones-count.avif` | CLI output showing three available Availability Zones |
 
-Evidence location:
-
-`evidence/02-global-infrastructure/`
+Evidence directory: `evidence/02-global-infrastructure/`
 
 ### Exercise Status
 
 **Status:** Successfully executed and verified.
-
-Both AWS CLI commands completed successfully, and the filtered Availability Zone count was three.
